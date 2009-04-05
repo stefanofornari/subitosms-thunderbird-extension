@@ -1,0 +1,28 @@
+<assembly>
+
+   <formats>
+        <format>dir</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    
+    <fileSets>
+        <fileSet>
+            <directory>src/main/chrome</directory>
+            <outputDirectory></outputDirectory>
+            <includes>
+                <include>install.rdf</include>
+                <include>chrome.manifest</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>src/main/chrome</directory>
+            <outputDirectory></outputDirectory>
+            <includes>
+                <include>content/</include>
+                <include>locale/</include>
+                <include>skins/</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+    
+</assembly>

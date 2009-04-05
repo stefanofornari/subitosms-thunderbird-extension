@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+
+	<Description about="urn:mozilla:install-manifest">
+
+		<em:id>subitosms-extension@funambol.com</em:id>
+		<em:name>subitosms</em:name>
+		<em:version>${project.version}</em:version>
+		<em:description>Send SMS from your address book</em:description>
+		<em:creator>Stefano Fornari</em:creator>
+		<em:type>2</em:type>
+		<em:locale>locale/en-US/</em:locale> 
+		<!--
+		<em:homepageURL></em:homepageURL>
+		<em:updateURL></em:updateURL>
+		-->
+		<em:optionsURL>chrome://subitosms/content/preferences.xul</em:optionsURL>
+		<em:targetApplication>
+			<Description>
+				 <em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id>
+        	     <em:minVersion>2.0</em:minVersion>
+        		 <em:maxVersion>2.0.0.*</em:maxVersion>
+			</Description>
+		</em:targetApplication>
+	</Description>
+</RDF>

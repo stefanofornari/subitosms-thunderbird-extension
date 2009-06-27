@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="chrome://subitosms/skin/subitosms.css" type="text/css"?>
+
+<!DOCTYPE page SYSTEM "chrome://subitosms/locale/subitosms.dtd">
+
+<dialog
+    id="SEND_SMS"
+    title="Send SMS"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    buttons="accept,cancel"
+    ondialogaccept="return doAccept();"
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+>
+
+  <script src="chrome://subitosms/content/utils.js"/>
+  <script src="chrome://subitosms/content/sendsms.js"/>
+
+  <groupbox flex="1" id="SEND_SMS_GROUP" width="300">
+		<hbox align="center">
+			<label id="MESSAGE_LABEL" value="Enter the message:"/>
+            <textbox id="MESSAGE_TEXT" flex="1"/>
+		</hbox>
+	</groupbox>
+</dialog>

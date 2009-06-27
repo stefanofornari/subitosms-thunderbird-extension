@@ -6,22 +6,15 @@
 <overlay id="subitoPopup"
          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
+    <script type="text/javascript" src="chrome://subitosms/content/utils.js"  />
     <script type="text/javascript" src="chrome://subitosms/content/subito.js" />
     
-    <!-- 
-        This is used for mailing groups. Not implemented for now
-        
-    <popup id="dirTreeContext" onpopupshowing="disableABitems2()">
-        <menuitem id="abDirTreeContextRecover" label="Send SMS;"  insertafter="dirTreeContext-properties"  oncommand="sendSMS()" />
-    </popup>
-    -->
-
     <!--
         This is the context popup menu available right-clicking on a card contact
     -->
     <hbox id="abContent" context="abContentPopup">
         <popup id="abContentPopup" onpopupshowing="abContentPopupShowing()">
-            <menuitem id="sendsms" label="Send SMS" oncommand="sendSMS()" />
+            <menuitem id="sendsms1" label="Send SMS" oncommand="sendSMS()" />
         </popup>
     </hbox>
     
@@ -29,8 +22,8 @@
         This is the context popup menu available right-clicking on a contact in the
         results list.
     -->
-    <popup id="abResultsTreeContext" onpopupshowing="disableABitems();">
-        <menuitem id="sendsms" label="Send SMS" insertafter="abResultsTreeContext-newim" oncommand="sendSMS()" />
+    <popup id="abResultsTreeContext" onpopupshowing="disableMenuItems2();">
+        <menuitem id="sendsms2" label="Send SMS" insertafter="abResultsTreeContext-newim" oncommand="showSMSWindow()" />
     </popup>
 
 </overlay>

@@ -1,8 +1,7 @@
 var gAddressBookBundle = document.getElementById("bundle_addressBook");
 var MCstrBundleService = Components.classes["@mozilla.org/intl/stringbundle;1"]
-                .getService(Components.interfaces.nsIStringBundleService);
-var MCbundle = MCstrBundleService.createBundle("chrome://morecols/locale/morecols.properties");
-var MCbundle2 = MCstrBundleService.createBundle("chrome://messenger/locale/importMsgs.properties");
+                         .getService(Components.interfaces.nsIStringBundleService);
+var MCbundle = MCstrBundleService.createBundle("chrome://subitosms/locale/subitosms.properties");
 
 
 var AbExportOrig20081223 = AbExport;
@@ -654,3 +653,24 @@ function modifyCardsProperty() {
 		}
 	}
 }
+
+function disableMenuItems2() {
+    var card = GetSelectedCard();
+
+    document.getElementById("sendsms2")
+            .setAttribute("disabled", !hasPhoneNumbers(card));
+}
+
+function showSMSWindow() {
+    var card = GetSelectedCard();
+    openDialog(
+        "chrome://subitosms/content/sendsms.xul",
+        "sendsms",
+        "width=400,height=200,modal,resizable=no,centerscreen",
+        {title: MCbundle.GetStringFromName("sendsms.window.title")},
+        card
+    );
+}
+
+
+

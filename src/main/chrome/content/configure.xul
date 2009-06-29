@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="chrome://subitosms/skin/subitosms.css" type="text/css"?>
+
+<dialog
+    id="CONFIGURE"
+    title="Configure"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    buttons="accept,cancel"
+    buttonlabelaccept="Save"
+    ondialogaccept="return doAccept();"
+    onload="loadConfiguration();"
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+>
+
+  <script src="chrome://subitosms/content/configure.js"/>
+
+  <groupbox flex="1" id="SEND_SMS_GROUP" label="SubitoSMS settings" width="300">
+    <hbox align="center">
+	  <label id="USERNAME_LABEL" value="Username:" flex="1"/>
+      <textbox id="USERNAME_TEXT" label="Username:"/>
+	</hbox>
+    <hbox align="center">
+	  <label id="PASSWORD_LABEL" value="Password:" flex="1"/>
+      <textbox id="PASSWORD_TEXT" label="Password:"/>
+	</hbox>
+    <hbox align="center">
+	  <label id="FROM_LABEL" value="From:" flex="1"/>
+      <textbox id="FROM_TEXT" label="From:"/>
+	</hbox>
+  </groupbox>
+
+  <script>
+    init();
+  </script>
+ </dialog>

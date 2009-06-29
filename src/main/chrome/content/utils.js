@@ -14,3 +14,7 @@ function hasPhoneNumbers(card) {
         || !isEmpty(card.cellularNumber)
          ;
 }
+
+function error(msg) {
+    alert("ERROR: " + msg);
+}

@@ -15,27 +15,34 @@
 
   <script src="chrome://subitosms/content/utils.js"/>
   <script src="chrome://subitosms/content/sendsms.js"/>
+  <script src="chrome://subitosms/content/http.js"/>
 
-  <groupbox onload="init();" flex="1" id="SEND_SMS_GROUP" width="300">
-		<hbox align="center">
-			<label id="MESSAGE_LABEL" value="Send the message:"/>
-            <textbox id="MESSAGE_TEXT" flex="1"/>
-		</hbox>
-        <hbox align="center">
-			<label id="PHONE_LIST_LABEL" value="To the phone number:"/><br/>
-            <menulist id="PHONE_LIST" editable="true">
-                <menupopup/>
-            </menulist>
+  <groupbox flex="1" id="SEND_SMS_GROUP" width="300">
+    <hbox align="center">
+      <label id="MESSAGE_LABEL" value="Send the message:"/>
+      <textbox id="MESSAGE_TEXT" flex="1"/>
+    </hbox>
+    <hbox align="center">
+      <label id="PHONE_LIST_LABEL" value="To the phone number:"/>
+        <menulist id="PHONE_LIST" editable="true">
+           <menupopup/>
+        </menulist>
+    </hbox>
+    <vbox height="75">
+      <spacer flex="1"/>
+      <hbox>
+        <spacer flex="1"/>
+        <button image="img/subitosms.png" tooltiptext="Configure SubitoSMS account..." oncommand="showConfigureWindow();"/>
+      </hbox>
+    </vbox>
+  </groupbox>
 
-		</hbox>
-	</groupbox>
-
-    <!--
+  <!--
       for some reason onload does not work... I am using this as wrkaround
-    -->
-    <script>
-        init();
-    </script>
+  -->
+  <script>
+    init();
+  </script>
 
 </dialog>
 

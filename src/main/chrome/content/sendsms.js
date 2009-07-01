@@ -28,22 +28,10 @@ function doAccept() {
     var card = window.arguments[1];
 
     if (isDefined(card)) {
-        sendSMS();
+        return sendSMS();
     }
 
     return true;
-}
-
-function formatNumber(number) {
-    var prefixed = number.charAt(0) == "+";
-
-    var ret = number.replace(/[^%2B0-9]/g, "");
-
-    if (prefixed) {
-        ret = "%2B" + ret;
-    }
-
-    return ret;
 }
 
 function makeSubitoURL(msg, number) {
@@ -71,7 +59,13 @@ function makeSubitoURL(msg, number) {
 }
 
 function analizeResponse(res) {
-    return true;
+    if (res.indexOf("non autorizzato") >= 0) {
+        alert("Wrong username or password. Please set up your SubitoSMS account and try again.");
+        return false;
+    } else {
+        alert("Message sent!");
+        return true;
+    }
 }
 
 function getMessage() {
@@ -82,9 +76,42 @@ function getNumber() {
     return document.getElementById("PHONE_LIST").value;
 }
 
+function isValidMessage(msg) {
+    return !isEmpty(msg);
+}
+
+function isValidPhoneNumber(number) {
+    if (isEmpty(number)) {
+        return false;
+    }
+
+    number = formatNumber(number);
+    number = trim(number);
+
+    //
+    // If there was not any digit, number will be empty or contain only %2B
+    //
+    if (isEmpty(number) || (number == "2B")) {
+        return false;
+    }
+
+    return true;
+}
+
+
 function sendSMS() {
     var msg = getMessage();
     var number = getNumber();
+
+    if (!isValidMessage(msg)) {
+        alert("Please insert the text of the message.");
+        return false;
+    }
+
+    if (!isValidPhoneNumber(number)) {
+        alert("Please insert a valid phone number.")
+        return false;
+    }
 
     var url = makeSubitoURL(msg, number);
 
@@ -94,12 +121,10 @@ function sendSMS() {
         //
         // ERROR!!!
         //
-        return;
+        return false;
     }
 
-    if (analizeResponse(res)) {
-        alert("Message sent!");
-    }
+    return analizeResponse(res);
 }
 
 function showConfigureWindow() {

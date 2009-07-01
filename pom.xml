@@ -28,7 +28,7 @@
                     <descriptors>
                         <descriptor>src/main/assembly/xpi.xml</descriptor>
                     </descriptors>
-                    <appendAssemblyId>true</appendAssemblyId>
+                    <appendAssemblyId>false</appendAssemblyId>
                     <finalName>${artifactId}-${version}</finalName>
                 </configuration>
                 <executions>

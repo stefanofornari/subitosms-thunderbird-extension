@@ -11,7 +11,7 @@
     <artifactId>subitosms-thunderbird-extension</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>SubitoSMS</name>
+    <name>SubitoSMS Thunderbird Extension</name>
     
     <scm>
         <connection>scm:git:git://github.com/stefanofornari/subitosms-thunderbird-extension.git</connection>

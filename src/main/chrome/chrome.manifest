@@ -1,6 +1,6 @@
 content	subitosms content/
 
-overlay	chrome://messenger/content/addressbook/addressbook.xul	chrome://subitosms/content/subitoPopup.xul
+overlay	chrome://messenger/content/addressbook/addressbook.xul	chrome://subitosms/content/addressbookOverlay.xul
 
 locale subitosms en-US locale/en-US/
 locale subitosms it-IT locale/it-IT/

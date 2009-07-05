@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet href="chrome://subitosms/skin/subitosms.css" type="text/css"?>
-
-<!DOCTYPE page SYSTEM "chrome://subitosms/locale/subitosms.dtd">
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
 
 <dialog
     id="SEND_SMS"
@@ -45,4 +43,3 @@
   </script>
 
 </dialog>
-

@@ -12,11 +12,12 @@ function disableMenuItems2() {
 
 function showSMSWindow() {
     var card = GetSelectedCard();
-    openDialog(
+    window.openDialog(
         "chrome://subitosms/content/sendsms.xul",
         "sendsms",
         "width=400,height=200,modal,resizable=no,centerscreen",
-        {title: MCbundle.GetStringFromName("sendsms.window.title")},
+        "pipo",
+        //{title: MCbundle.GetStringFromName("sendsms.window.title")},
         card
     );
 }

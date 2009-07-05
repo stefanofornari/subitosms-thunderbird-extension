@@ -131,7 +131,7 @@ function showConfigureWindow() {
     openDialog(
         "chrome://subitosms/content/configure.xul",
         "configure",
-        "width=300,height=200,modal,resizable=no,centerscreen",
+        "width=400,height=200,modal,resizable=no,centerscreen",
         "Configure SubitoSMS account"
     );
 }

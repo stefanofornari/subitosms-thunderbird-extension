@@ -45,7 +45,7 @@ function makeSubitoURL(msg, number) {
     var sender=
         prefs.getComplexValue("subitosms.from", Components.interfaces.nsISupportsString).data;
     var to=formatNumber(number);
-    var text = msg;
+    var text = escape(msg);
 
     var url = "https://www.subitosms.it/gateway.php"
             + "?username=" + username

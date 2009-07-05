@@ -10,9 +10,11 @@
             <directory>src/main/chrome</directory>
             <outputDirectory></outputDirectory>
             <includes>
-                <include>install.rdf</include>
                 <include>chrome.manifest</include>
             </includes>
+            <excludes>
+                <exclude>install.rdf</exclude>
+            </excludes>
         </fileSet>
         <fileSet>
             <directory>src/main/chrome</directory>
@@ -24,5 +26,13 @@
             </includes>
         </fileSet>
     </fileSets>
+
+    <files>
+        <file>
+            <source>src/main/chrome/install.rdf</source>
+            <outputDirectory></outputDirectory>
+            <filtered>true</filtered>
+        </file>
+    </files>
     
 </assembly>

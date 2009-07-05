@@ -1,7 +1,6 @@
 <assembly>
    <id>xpi</id>
    <formats>
-        <format>dir</format>
         <format>zip</format>
     </formats>
     <includeBaseDirectory>false</includeBaseDirectory>

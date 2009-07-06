@@ -38,21 +38,24 @@ function makeSubitoURL(msg, number) {
     var prefs = Components.classes["@mozilla.org/preferences-service;1"]
                           .getService(Components.interfaces.nsIPrefBranch);
 
-    var username =
-        prefs.getComplexValue("subitosms.username", Components.interfaces.nsISupportsString).data;
-    var password =
-        prefs.getComplexValue("subitosms.password", Components.interfaces.nsISupportsString).data;
-    var sender=
-        prefs.getComplexValue("subitosms.from", Components.interfaces.nsISupportsString).data;
-    var to=formatNumber(number);
-    var text = escape(msg);
+    var username = escapeText(
+            prefs.getComplexValue("subitosms.username", Components.interfaces.nsISupportsString).data
+        );
+    var password = escapeText(
+            prefs.getComplexValue("subitosms.password", Components.interfaces.nsISupportsString).data
+        );
+    var mitt = escapeText(
+            prefs.getComplexValue("subitosms.from", Components.interfaces.nsISupportsString).data
+        );
+    var dest = escapePhoneNumber(number);
+    var testo = escapeText(msg);
 
     var url = "https://www.subitosms.it/gateway.php"
             + "?username=" + username
             + "&password=" + password
-            + "&mitt="     + sender
-            + "&dest="     + to
-            + "&testo="    + text
+            + "&mitt="     + mitt
+            + "&dest="     + dest
+            + "&testo="    + testo
             ;
 
     return url;
@@ -85,13 +88,13 @@ function isValidPhoneNumber(number) {
         return false;
     }
 
-    number = formatNumber(number);
+    number = escapePhoneNumber(number);
     number = trim(number);
 
     //
     // If there was not any digit, number will be empty or contain only %2B
     //
-    if (isEmpty(number) || (number == "2B")) {
+    if (isEmpty(number) || (number == "%2B")) {
         return false;
     }
 

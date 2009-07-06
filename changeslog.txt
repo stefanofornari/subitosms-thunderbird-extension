@@ -1,3 +1,9 @@
+2009-07-06
+ste: fixed escaping issues
+
+2009-07-05
+ste: fixed bugs #1,#2
+
 2009-07-02
 ste: first working drop
 

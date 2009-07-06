@@ -15,13 +15,28 @@ function hasPhoneNumbers(card) {
     ;
 }
 
-function formatNumber(number) {
+function escapePhoneNumber(number) {
     var prefixed = number.charAt(0) == "+";
 
-    var ret = number.replace(/[^%2B0-9]/g, "");
+    var ret = number.replace(/[^0-9]/g, "");
 
     if (prefixed) {
         ret = "%2B" + ret;
+    }
+
+    return ret;
+}
+
+function escapeText(text) {
+    text = escape(text);
+
+    var ret = "";
+    for (i=0; i<text.length; ++i) {
+        if (text.charAt(i) == "+") {
+            ret += "%2B";
+        } else {
+            ret += text.charAt(i);
+        }
     }
 
     return ret;

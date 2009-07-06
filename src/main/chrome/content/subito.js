@@ -16,8 +16,7 @@ function showSMSWindow() {
         "chrome://subitosms/content/sendsms.xul",
         "sendsms",
         "width=400,height=200,modal,resizable=no,centerscreen",
-        "pipo",
-        //{title: MCbundle.GetStringFromName("sendsms.window.title")},
+        {title: MCbundle.GetStringFromName("sendsms.window.title")},
         card
     );
 }

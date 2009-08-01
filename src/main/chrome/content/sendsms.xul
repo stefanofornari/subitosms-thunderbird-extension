@@ -2,27 +2,29 @@
 <?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
 
 <dialog
-    id="SEND_SMS"
-    title="Send SMS"
+    id="sendsms.window"
+    title="sendsms.window.title"
     xmlns:html="http://www.w3.org/1999/xhtml"
     buttons="accept,cancel"
-    buttonlabelaccept="Send"
+    buttonlabelaccept="sendsms.window.accept.label"
+    buttonlabelcancel="sendsms.window.cancel.label"
     ondialogaccept="return doAccept();"
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 >
 
+  <script src="chrome://subitosms/content/i18n.js"/>
   <script src="chrome://subitosms/content/utils.js"/>
   <script src="chrome://subitosms/content/sendsms.js"/>
   <script src="chrome://subitosms/content/http.js"/>
 
-  <groupbox flex="1" id="SEND_SMS_GROUP" width="300">
+  <groupbox flex="1" id="sendsms.group" width="300">
     <hbox align="center">
-      <label id="MESSAGE_LABEL" value="Send the message:"/>
-      <textbox id="MESSAGE_TEXT" flex="1"/>
+      <label id="sendsms.message.label" value="sendsms.message.label.value"/>
+      <textbox id="sendsms.message.textbox" flex="1"/>
     </hbox>
     <hbox align="center">
-      <label id="PHONE_LIST_LABEL" value="To the phone number:"/>
-        <menulist id="PHONE_LIST" editable="true">
+      <label id="sendsms.phonelist" value="sendsms.phonelist.value"/>
+      <menulist id="sendsms.phonelist.menu" editable="true">
            <menupopup/>
         </menulist>
     </hbox>
@@ -30,7 +32,10 @@
       <spacer flex="1"/>
       <hbox>
         <spacer flex="1"/>
-        <button image="img/subitosms.png" tooltiptext="Configure SubitoSMS account..." oncommand="showConfigureWindow();"/>
+        <button id="sendsms.subitosmsbutton.configure"
+                image="img/subitosms.png"
+                tooltiptext="sendsms.subitosmsbutton.configure.tooltip"
+                oncommand="showConfigureWindow();"/>
       </hbox>
     </vbox>
   </groupbox>

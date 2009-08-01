@@ -1,3 +1,7 @@
+var bundleService = Components.classes["@mozilla.org/intl/stringbundle;1"]
+                    .getService(Components.interfaces.nsIStringBundleService);
+var bundle = bundleService.createBundle("chrome://subitosms/locale/subitosms.properties");
+
 function getWidgetId(s) {
   return s.split(".")[0];
 }
@@ -29,7 +33,5 @@ function localizeLabels() {
 */
 
 function getString(key) {
-  var bundle = document.getElementById("I18N");
-
-  return bundle.getString(key);
+  return bundle.GetStringFromName(key);
 }

@@ -3,29 +3,29 @@
 
 <dialog
     id="CONFIGURE"
-    title="Configure"
     xmlns:html="http://www.w3.org/1999/xhtml"
     buttons="accept,cancel"
-    buttonlabelaccept="Save"
+    buttonlabelaccept="configure.window.accept"
     ondialogaccept="return doAccept();"
     onload="loadConfiguration();"
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 >
 
+  <script src="chrome://subitosms/content/i18n.js"/>
   <script src="chrome://subitosms/content/configure.js"/>
 
   <groupbox flex="1" id="SEND_SMS_GROUP" label="SubitoSMS settings" width="300">
     <hbox align="center">
-	  <label id="USERNAME_LABEL" value="Username:" flex="1"/>
-      <textbox id="USERNAME_TEXT" label="Username:"/>
+	  <label id="configure.username.label" value="configure.username.label.value" flex="1"/>
+      <textbox id="configure.username.text"/>
 	</hbox>
     <hbox align="center">
-	  <label id="PASSWORD_LABEL" value="Password:" flex="1"/>
-      <textbox id="PASSWORD_TEXT" label="Password:"/>
+	  <label id="configure.password.label" value="configure.username.label.value" flex="1"/>
+      <textbox id="configure.password.text"/>
 	</hbox>
     <hbox align="center">
-	  <label id="FROM_LABEL" value="From:" flex="1"/>
-      <textbox id="FROM_TEXT" label="From:"/>
+	  <label id="configure.from.label" value="configure.from.label.value" flex="1"/>
+      <textbox id="configure.from.text"/>
 	</hbox>
   </groupbox>
 

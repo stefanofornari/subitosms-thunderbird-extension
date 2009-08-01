@@ -1,6 +1,11 @@
 function init() {
     //
-    // I want to display the numbers if this order:
+    // Lable localization
+    //
+    localizeLabels();
+    
+    //
+    // I want to display the numbers in this order:
     //
     // - mobile
     // - home
@@ -8,7 +13,7 @@ function init() {
     //
     card = window.arguments[1];
 
-    phonelist = document.getElementById("PHONE_LIST");
+    phonelist = document.getElementById("sendsms.phonelist.menu");
     if (!isEmpty(card.cellularNumber)) {
         phonelist.appendItem(card.cellularNumber, card.cellularNumber, "(M)");
     }
@@ -63,20 +68,25 @@ function makeSubitoURL(msg, number) {
 
 function analizeResponse(res) {
     if (res.indexOf("non autorizzato") >= 0) {
-        alert("Wrong username or password. Please set up your SubitoSMS account and try again.");
-        return false;
-    } else {
-        alert("Message sent!");
+        alert(getString("sendsms.alert.notauthorized"));
+    } else if (res.indexOf("credito insufficiente") >= 0) {
+        alert(getString("sendsms.alert.nocredit"));
+    } else if (res.indexOf("id: ") == 0) {
+        alert(getString("sendsms.alert.sent"));
         return true;
+    } else {
+        alert(getString("sendsms.subito.error") + ":" + res);
     }
+
+    return false;
 }
 
 function getMessage() {
-    return document.getElementById("MESSAGE_TEXT").value;
+    return document.getElementById("sendsms.message.textbox").value;
 }
 
 function getNumber() {
-    return document.getElementById("PHONE_LIST").value;
+    return document.getElementById("sendsms.phonelist.menu").value;
 }
 
 function isValidMessage(msg) {
@@ -107,12 +117,12 @@ function sendSMS() {
     var number = getNumber();
 
     if (!isValidMessage(msg)) {
-        alert("Please insert the text of the message.");
+        alert(getString("sendsms.alert.nomessage"));
         return false;
     }
 
     if (!isValidPhoneNumber(number)) {
-        alert("Please insert a valid phone number.")
+        alert(getString("sendsms.alert.invalidnumber"));
         return false;
     }
 
@@ -135,6 +145,16 @@ function showConfigureWindow() {
         "chrome://subitosms/content/configure.xul",
         "configure",
         "width=400,height=200,modal,resizable=no,centerscreen",
-        "Configure SubitoSMS account"
+        getString("configure.window.title")
     );
+}
+
+function localizeLabels() {
+    document.title=getString("sendsms.window.title");
+    document.documentElement.getButton("accept").label = getString("sendsms.window.accept.label");
+    document.documentElement.getButton("cancel").label = getString("sendsms.window.cancel.label");
+    document.getElementById("sendsms.message.label").value = getString("sendsms.message.label.value");
+    document.getElementById("sendsms.phonelist").value = getString("sendsms.phonelist.value");
+    document.getElementById("sendsms.subitosmsbutton.configure").tooltipText = getString("sendsms.subitosmsbutton.configure.tooltip");
+   
 }

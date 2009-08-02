@@ -1,3 +1,7 @@
+2009-08-01
+ste: releasing 1.0.1
+ste: fixed a bug that displayed an error message even if the message was correctly sent
+
 2009-07-26
 ste: localization and added Italian translation
 

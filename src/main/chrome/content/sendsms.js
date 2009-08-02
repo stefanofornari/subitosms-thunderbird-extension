@@ -71,7 +71,7 @@ function analizeResponse(res) {
         alert(getString("sendsms.alert.notauthorized"));
     } else if (res.indexOf("credito insufficiente") >= 0) {
         alert(getString("sendsms.alert.nocredit"));
-    } else if (res.indexOf("id: ") == 0) {
+    } else if (res.indexOf("id:") == 0) {
         alert(getString("sendsms.alert.sent"));
         return true;
     } else {

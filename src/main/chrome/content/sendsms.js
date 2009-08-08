@@ -153,7 +153,6 @@ function localizeLabels() {
     document.title=getString("sendsms.window.title");
     document.documentElement.getButton("accept").label = getString("sendsms.window.accept.label");
     document.documentElement.getButton("cancel").label = getString("sendsms.window.cancel.label");
-    document.getElementById("sendsms.message.label").value = getString("sendsms.message.label.value");
     document.getElementById("sendsms.phonelist").value = getString("sendsms.phonelist.value");
     document.getElementById("sendsms.subitosmsbutton.configure").tooltipText = getString("sendsms.subitosmsbutton.configure.tooltip");
    

@@ -19,16 +19,22 @@
 
   <groupbox flex="1" id="sendsms.group" width="300">
     <hbox align="center">
-      <label id="sendsms.message.label" value="sendsms.message.label.value"/>
-      <textbox id="sendsms.message.textbox" flex="1"/>
-    </hbox>
-    <hbox align="center">
       <label id="sendsms.phonelist" value="sendsms.phonelist.value"/>
       <menulist id="sendsms.phonelist.menu" editable="true">
            <menupopup/>
         </menulist>
     </hbox>
-    <vbox height="75">
+    <hbox align="center">
+      <textbox id="sendsms.message.textbox" 
+               flex="1"
+               multiline="true"
+               newlines="replacewithspaces"
+               maxlength="1000"
+               spellcheck="true"
+               tabindex="1"
+    />
+    </hbox>
+    <vbox height="50">
       <spacer flex="1"/>
       <hbox>
         <spacer flex="1"/>

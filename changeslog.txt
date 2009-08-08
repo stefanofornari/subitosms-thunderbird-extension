@@ -1,3 +1,8 @@
+2009-08-08
+ste: releasing 1.0.2
+ste: added maxlength to 1000 characters
+ste: layout redesign with multiline textbox with spellcheck
+
 2009-08-01
 ste: releasing 1.0.1
 ste: fixed a bug that displayed an error message even if the message was correctly sent

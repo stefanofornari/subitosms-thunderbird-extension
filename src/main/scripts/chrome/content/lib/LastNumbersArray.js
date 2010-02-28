@@ -51,3 +51,24 @@ LastNumbersArray.prototype.get = function(index) {
     }
     return this.numbers[index];
 }
+
+/**
+ * Returns a comma separated values representation of the numbers contained in
+ * the array.
+ */
+LastNumbersArray.prototype.toString = function() {
+    return this.numbers.join();
+}
+
+/**
+ * Replaces the content of the array with the comma separated values provided.
+ * If the values are more than what allowed by maxSize, only maxSize elements
+ * will be stored in the array.
+ */
+LastNumbersArray.prototype.fromString = function(s) {
+    if (s.length == 0) {
+        this.numbers = new Array();
+    } else {
+        this.numbers = s.split(",", this.maxSize);
+    }
+}

@@ -75,3 +75,33 @@ LastNumbersArrayTestSuite.prototype.testAddOverMaxSize = function testAddOverMax
     assertEquals(t3, l.get(1));
     assertEquals(t2, l.get(2));
 }
+
+LastNumbersArrayTestSuite.prototype.testToString = function testToString() {
+    var l = new LastNumbersArray(3);
+
+    assertEquals("", l.toString());
+
+    l.add(t1 = "+11111111");
+    assertEquals(t1, l.toString());
+
+    l.add(t2 = "+22222222");
+    assertEquals(t2+","+t1, l.toString());
+}
+
+LastNumbersArrayTestSuite.prototype.testFromString = function testFromString(s) {
+    var l = new LastNumbersArray(3);
+
+    l.fromString("");
+    assertTrue(l.isEmpty());
+
+    l.fromString(t1 = "+11111111");
+    assertEquals(1, l.getSize());
+    assertEquals(t1, l.get(0));
+
+/**
+    t2 = "+22222222";
+    l.fromString(t1 + "," + t2);
+    assertEquals(2, l.size());
+    assertEquals(t1, l.get(0));
+**/
+}

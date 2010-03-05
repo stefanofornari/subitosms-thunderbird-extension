@@ -1,3 +1,7 @@
+2010-03-06
+ste: US5: Phone numbers history
+ste: US6: added Send SMS to the address book tools menu
+
 2009-08-08
 ste: releasing 1.0.2
 ste: added maxlength to 1000 characters

@@ -27,4 +27,9 @@
         <menuitem id="sendsms2" insertafter="abResultsTreeContext-newim" oncommand="showSMSWindow()" />
     </popup>
 
+    <menupopup id="taskPopup" onpopupshowing="showMenuItems3()">
+        <menuseparator/>
+        <menuitem id="sendsms3" oncommand="showSMSWindow()"/>
+    </menupopup>
+
 </overlay>

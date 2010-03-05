@@ -11,6 +11,10 @@ function showMenuItems2() {
             .setAttribute("disabled", !hasPhoneNumbers(card));
 }
 
+function showMenuItems3() {
+    document.getElementById("sendsms3").label=getString("subitosms.menu.send");
+}
+
 function showSMSWindow() {
     var card = GetSelectedCard();
     dialog = openDialog(

@@ -26,6 +26,19 @@ function init() {
         phonelist.appendItem(card.workPhone, card.workPhone, "(W)");
     }
 
+    //
+    // After the card phone numbers, I want to display the latest used number
+    //
+    lastNumbers = getLastUsedNumbers();
+    if (lastNumbers.getSize() > 0) {
+        var separator = document.createElement("menuseparator");
+        document.getElementById("sendsms.phonelist.menu.popup").appendChild(separator);
+
+        for (i = 0; i<lastNumbers.getSize(); ++i) {
+            phonelist.appendItem(lastNumbers.get(i));
+        }
+    }
+
     phonelist.selectedIndex=0;
 }
 
@@ -89,6 +102,44 @@ function getNumber() {
     return document.getElementById("sendsms.phonelist.menu").value;
 }
 
+function getLastUsedNumbers() {
+    lastNumbers = new LastNumbersArray();
+
+    var prefs = Components.classes["@mozilla.org/preferences-service;1"]
+                          .getService(Components.interfaces.nsIPrefBranch);
+
+
+    try {
+        lastNumbers.fromString(
+            prefs.getComplexValue(
+                "subitosms.last-numbers",
+                Components.interfaces.nsISupportsString
+            ).data
+        );
+    } catch (e) {
+        //
+        // Not yet initialized, do nothing, he array will be empty
+        //
+    }
+
+    return lastNumbers;
+}
+
+function rememberNumber(number) {
+    var prefs = Components.classes["@mozilla.org/preferences-service;1"]
+                          .getService(Components.interfaces.nsIPrefBranch);
+
+    var lastNumbers = getLastUsedNumbers();
+
+    lastNumbers.add(number);
+
+
+    prefs.setCharPref(
+        "subitosms.last-numbers",
+        lastNumbers.toString()
+    );
+}
+
 function isValidMessage(msg) {
     return !isEmpty(msg);
 }
@@ -136,6 +187,8 @@ function sendSMS() {
         //
         return false;
     }
+
+    rememberNumber(number);
 
     return analizeResponse(res);
 }

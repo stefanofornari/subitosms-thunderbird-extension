@@ -26,5 +26,14 @@ function showSMSWindow() {
     );
 }
 
-
+function showSMSWindowFromMessenger() {
+    var card = new Object();
+    dialog = openDialog(
+        "chrome://subitosms/content/sendsms.xul",
+        "sendsms",
+        "width=400,height=200,modal,resizable=no,centerscreen",
+        {title: MCbundle.GetStringFromName("sendsms.window.title")},
+        card
+    );
+}
 

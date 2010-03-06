@@ -21,7 +21,7 @@
   <groupbox flex="1" id="sendsms.group" width="300">
     <hbox align="center">
       <label id="sendsms.phonelist" value="sendsms.phonelist.value"/>
-      <menulist id="sendsms.phonelist.menu" editable="true">
+      <menulist id="sendsms.phonelist.menu" editable="true" sizetopopup="true">
            <menupopup id="sendsms.phonelist.menu.popup"/>
         </menulist>
     </hbox>

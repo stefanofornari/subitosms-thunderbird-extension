@@ -7,7 +7,7 @@
     
     <fileSets>
         <fileSet>
-            <directory>src/main/chrome</directory>
+            <directory>src/main/scripts/chrome</directory>
             <outputDirectory></outputDirectory>
             <includes>
                 <include>chrome.manifest</include>
@@ -17,7 +17,7 @@
             </excludes>
         </fileSet>
         <fileSet>
-            <directory>src/main/chrome</directory>
+            <directory>src/main/scripts/chrome</directory>
             <outputDirectory></outputDirectory>
             <includes>
                 <include>content/</include>
@@ -29,7 +29,7 @@
 
     <files>
         <file>
-            <source>src/main/chrome/install.rdf</source>
+            <source>src/main/scripts/chrome/install.rdf</source>
             <outputDirectory></outputDirectory>
             <filtered>true</filtered>
         </file>

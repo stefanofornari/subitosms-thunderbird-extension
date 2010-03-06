@@ -1,4 +1,5 @@
 2010-03-06
+ste: releasing 1.0.3
 ste: US5: Phone numbers history
 ste: US6: added Send SMS to the Tools menu
 

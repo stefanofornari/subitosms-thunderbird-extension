@@ -20,15 +20,27 @@ LastNumbersArray.prototype.getSize = function() {
 }
 
 /**
- * Adds a new element at the beginning of the array.
+ * Adds a new element at the beginning of the array. If the same entry was
+ * already in the array, the existing entry is removed.
  */
 LastNumbersArray.prototype.add = function(entry) {
+    //
+    // Check first if the element is already in the history
+    //
+    for (i=0; i<this.numbers.length; ++i) {
+        if (this.numbers[i] == entry) {
+            this.numbers.splice(i, 1);
+        }
+    }
+    
     newSize = this.numbers.unshift(entry);
 
+    //
+    // If teh new size of the array is bigger than the max size, discard the
+    // last element.
+    //
     if (newSize > this.maxSize) {
-        //
-        // Discard the last element of the array
-        //
+        
         this.numbers.pop();
     }
 }

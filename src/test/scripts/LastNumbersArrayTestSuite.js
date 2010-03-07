@@ -76,6 +76,15 @@ LastNumbersArrayTestSuite.prototype.testAddOverMaxSize = function testAddOverMax
     assertEquals(t2, l.get(2));
 }
 
+LastNumbersArrayTestSuite.prototype.testAddDuplicateNumber = function testAddDuplicateNumber() {
+    var l = new LastNumbersArray();
+
+    l.add(t1 = "+11111111");
+    l.add(t2 = "+11111111");
+
+    assertEquals(1, l.getSize());
+}
+
 LastNumbersArrayTestSuite.prototype.testToString = function testToString() {
     var l = new LastNumbersArray(3);
 

@@ -162,8 +162,33 @@ function isValidPhoneNumber(number) {
     return true;
 }
 
+function checkConfiguration() {
+    try {
+        loadConfiguration();
+    } catch (e) {
+        return false;
+    }
+
+    return true;
+}
+
 
 function sendSMS() {
+    //
+    // If there is not a valid configuration, ask the user to configure
+    // subitosms first.
+    //
+    if (!checkConfiguration()) {
+        alert(getString("sendsms.alert.noconfiguration"));
+        if (!showConfigureWindow()) {
+            //
+            // If the user pressed cancel, do not send the message and keep the
+            // send sms window open
+            //
+            return false;
+        }
+    }
+
     var msg = getMessage();
     var number = getNumber();
 
@@ -194,12 +219,16 @@ function sendSMS() {
 }
 
 function showConfigureWindow() {
+    var ret = {saved: false};
     openDialog(
         "chrome://subitosms/content/configure.xul",
         "configure",
         "width=400,height=200,modal,resizable=no,centerscreen",
-        getString("configure.window.title")
+        getString("configure.window.title"),
+        ret
     );
+
+    return ret.saved;
 }
 
 function localizeLabels() {

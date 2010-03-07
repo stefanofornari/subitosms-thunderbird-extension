@@ -29,6 +29,6 @@
 
     <menupopup id="taskPopup" onpopupshowing="showMenuItems3()">
         <menuseparator/>
-        <menuitem id="sendsms3" oncommand="showSMSWindowFromMessenger()"/>
+        <menuitem id="sendsms3" oncommand="showSMSWindow(false)"/>
     </menupopup>
 </overlay>

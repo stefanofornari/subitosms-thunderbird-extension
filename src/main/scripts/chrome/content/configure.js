@@ -2,12 +2,37 @@ function loadConfiguration() {
     var prefs = Components.classes["@mozilla.org/preferences-service;1"]
                           .getService(Components.interfaces.nsIPrefBranch);
 
-    document.getElementById("configure.username.text").value =
+    var configuration = new Object();
+
+    configuration.username =
         prefs.getComplexValue("subitosms.username", Components.interfaces.nsISupportsString).data;
-    document.getElementById("configure.password.text").value =
+    configuration.password =
         prefs.getComplexValue("subitosms.password", Components.interfaces.nsISupportsString).data;
-    document.getElementById("configure.from.text").value =
+    configuration.from =
         prefs.getComplexValue("subitosms.from", Components.interfaces.nsISupportsString).data;
+
+    return configuration;
+}
+
+function initConfigurationFields() {
+    //
+    // loadConfiguration fails if configuration parameters have never been
+    // saved before
+    //
+    try {
+        var configuration = loadConfiguration();
+
+        document.getElementById("configure.username.text").value =
+            configuration.username;
+        document.getElementById("configure.password.text").value =
+            configuration.password;
+        document.getElementById("configure.from.text").value =
+            configuration.from;
+    } catch (e) {
+        //
+        // no action required
+        //
+    }
 }
 
 function saveConfiguration() {
@@ -38,10 +63,13 @@ function saveConfiguration() {
         Components.interfaces.nsISupportsString,
         v
     );
+
+    var ret = window.arguments[1];
+    ret.saved = true;
 }
 
 function init() {
-    loadConfiguration();
+    initConfigurationFields();
     localizeLabels();
 }
 

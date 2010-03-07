@@ -15,6 +15,7 @@
   <script src="chrome://subitosms/content/i18n.js"/>
   <script src="chrome://subitosms/content/utils.js"/>
   <script src="chrome://subitosms/content/lib/LastNumbersArray.js"/>
+  <script src="chrome://subitosms/content/configure.js"/>
   <script src="chrome://subitosms/content/sendsms.js"/>
   <script src="chrome://subitosms/content/http.js"/>
 

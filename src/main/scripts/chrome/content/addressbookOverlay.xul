@@ -15,7 +15,7 @@
     -->
     <hbox id="abContent" context="abContentPopup">
         <popup id="abContentPopup" onpopupshowing="showMenuItems1()">
-            <menuitem id="sendsms1" oncommand="showSMSWindow()" />
+            <menuitem id="sendsms1" oncommand="showSMSWindow(true)" />
         </popup>
     </hbox>
     
@@ -24,12 +24,12 @@
         results list.
     -->
     <popup id="abResultsTreeContext" onpopupshowing="showMenuItems2()">
-        <menuitem id="sendsms2" insertafter="abResultsTreeContext-newim" oncommand="showSMSWindow()" />
+        <menuitem id="sendsms2" insertafter="abResultsTreeContext-newim" oncommand="showSMSWindow(true)" />
     </popup>
 
     <menupopup id="taskPopup" onpopupshowing="showMenuItems3()">
         <menuseparator/>
-        <menuitem id="sendsms3" oncommand="showSMSWindow()"/>
+        <menuitem id="sendsms3" oncommand="showSMSWindow(true)"/>
     </menupopup>
 
 </overlay>

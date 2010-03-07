@@ -15,19 +15,13 @@ function showMenuItems3() {
     document.getElementById("sendsms3").label=getString("subitosms.menu.send");
 }
 
-function showSMSWindow() {
-    var card = GetSelectedCard();
-    dialog = openDialog(
-        "chrome://subitosms/content/sendsms.xul",
-        "sendsms",
-        "width=400,height=200,modal,resizable=no,centerscreen",
-        {title: MCbundle.GetStringFromName("sendsms.window.title")},
-        card
-    );
-}
-
-function showSMSWindowFromMessenger() {
+function showSMSWindow(withCard) {
     var card = new Object();
+
+    if (withCard) {
+        card = GetSelectedCard();
+    }
+
     dialog = openDialog(
         "chrome://subitosms/content/sendsms.xul",
         "sendsms",

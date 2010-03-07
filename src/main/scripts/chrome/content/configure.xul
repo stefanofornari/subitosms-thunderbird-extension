@@ -7,7 +7,7 @@
     buttons="accept,cancel"
     buttonlabelaccept="configure.window.accept"
     ondialogaccept="return doAccept();"
-    onload="loadConfiguration();"
+    onload="onLoadConfigureWindow();"
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 >
 

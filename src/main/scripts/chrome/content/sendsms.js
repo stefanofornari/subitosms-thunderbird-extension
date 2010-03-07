@@ -11,7 +11,7 @@ function init() {
     // - home
     // - work
     //
-    card = window.arguments[1];
+    card = window.arguments[0];
 
     phonelist = document.getElementById("sendsms.phonelist.menu");
     if (!isEmpty(card.cellularNumber)) {
@@ -42,8 +42,13 @@ function init() {
     phonelist.selectedIndex=0;
 }
 
+function onMainWindowLoad() {
+    init();
+}
+
+
 function doAccept() {
-    var card = window.arguments[1];
+    var card = window.arguments[0];
 
     if (isDefined(card)) {
         return sendSMS();
@@ -223,8 +228,7 @@ function showConfigureWindow() {
     openDialog(
         "chrome://subitosms/content/configure.xul",
         "configure",
-        "width=400,height=200,modal,resizable=no,centerscreen",
-        getString("configure.window.title"),
+        "chrome,width=400,height=200,modal,resizable=no,centerscreen",
         ret
     );
 
@@ -237,5 +241,4 @@ function localizeLabels() {
     document.documentElement.getButton("cancel").label = getString("sendsms.window.cancel.label");
     document.getElementById("sendsms.phonelist").value = getString("sendsms.phonelist.value");
     document.getElementById("sendsms.subitosmsbutton.configure").tooltipText = getString("sendsms.subitosmsbutton.configure.tooltip");
-   
 }

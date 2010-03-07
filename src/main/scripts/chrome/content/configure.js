@@ -64,11 +64,11 @@ function saveConfiguration() {
         v
     );
 
-    var ret = window.arguments[1];
+    var ret = window.arguments[0];
     ret.saved = true;
 }
 
-function init() {
+function onLoadConfigureWindow() {
     initConfigurationFields();
     localizeLabels();
 }
@@ -78,6 +78,7 @@ function doAccept() {
 }
 
 function localizeLabels() {
+    document.title=getString("configure.window.title");
     document.documentElement.getButton("accept").label = getString("configure.window.accept.label");
     document.documentElement.getButton("cancel").label = getString("configure.window.cancel.label");
     document.getElementById("configure.username.label").value = getString("configure.username.label.value");

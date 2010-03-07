@@ -3,12 +3,12 @@
 
 <dialog
     id="sendsms.window"
-    title="sendsms.window.title"
     xmlns:html="http://www.w3.org/1999/xhtml"
     buttons="accept,cancel"
     buttonlabelaccept="sendsms.window.accept.label"
     buttonlabelcancel="sendsms.window.cancel.label"
     ondialogaccept="return doAccept();"
+    onload="onMainWindowLoad();"
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 >
 
@@ -47,12 +47,5 @@
       </hbox>
     </vbox>
   </groupbox>
-
-  <!--
-      for some reason onload does not work... I am using this as wrkaround
-  -->
-  <script>
-    init();
-  </script>
 
 </dialog>

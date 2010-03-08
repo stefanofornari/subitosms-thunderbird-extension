@@ -1,3 +1,8 @@
+2010-03-07
+ste: fixed bug #7 - First time configuration not detected
+ste: fixed bug #8 - number history should not duplicate numbers
+ste: fixed bug #9 - send sms window title is not localized
+
 2010-03-06
 ste: releasing 1.0.3
 ste: US5: Phone numbers history

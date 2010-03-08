@@ -1,3 +1,6 @@
+2010-03-08
+ste: US4: Link to subitosms
+
 2010-03-07
 ste: fixed bug #7 - First time configuration not detected
 ste: fixed bug #8 - number history should not duplicate numbers

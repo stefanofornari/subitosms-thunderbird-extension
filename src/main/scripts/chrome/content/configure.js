@@ -84,4 +84,17 @@ function localizeLabels() {
     document.getElementById("configure.username.label").value = getString("configure.username.label.value");
     document.getElementById("configure.password.label").value = getString("configure.password.label.value");
     document.getElementById("configure.from.label").value = getString("configure.from.label.value");
+    document.getElementById("configure.subitosms.label").value = getString("configure.subitosms.label.value");
+}
+
+function showSubitoSMSSite() {
+    var url = "http://www.subitosms.it/registrazione_step1.php";
+
+    var uri = Components.classes["@mozilla.org/network/io-service;1"]
+              .getService(Components.interfaces.nsIIOService).newURI(url, null, null);
+
+    var com = Components.classes["@mozilla.org/uriloader/external-helper-app-service;1"];
+    var httpHandler = com.createInstance(Components.interfaces.nsIExternalProtocolService);
+
+    httpHandler.loadUrl(uri);
 }

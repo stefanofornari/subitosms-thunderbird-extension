@@ -1,3 +1,6 @@
+2010-03-14
+ste: releasing 1.0.4
+
 2010-03-08
 ste: US4: Link to subitosms
 

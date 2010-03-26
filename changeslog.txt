@@ -1,3 +1,7 @@
+2010-03-26
+ste: releasing 1.0.5
+ste: added support for TB3
+
 2010-03-14
 ste: releasing 1.0.4
 

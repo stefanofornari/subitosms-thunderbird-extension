@@ -86,3 +86,8 @@ function stripCharsInvalid(s, bag) {
     return ret;
 }
 
+function isTB2() {
+    var info = Components.classes["@mozilla.org/xre/app-info;1"]
+               .getService(Components.interfaces.nsIXULAppInfo);
+   return (info.version.indexOf("2.") == 0);
+}

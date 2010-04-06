@@ -2,25 +2,25 @@ function LastNumbersArrayTestSuite() {
 }
 
 LastNumbersArrayTestSuite.prototype.testNewArrayIsEmpty = function testNewArrayIsEmpty() {
-    var l = new LastNumbersArray();
+    var l = new funambol.subitosms.util.LastNumbersArray();
 
     assertTrue(l.isEmpty());
 }
 
 LastNumbersArrayTestSuite.prototype.testDefaultMaxSize = function testDefaultMaxSize() {
-    var l = new LastNumbersArray();
+    var l = new funambol.subitosms.util.LastNumbersArray();
 
     assertEquals(20, l.getMaxSize());
 }
 
 LastNumbersArrayTestSuite.prototype.testGivenMaxSize = function testGivenMaxSize() {
-    var l = new LastNumbersArray(10);
+    var l = new funambol.subitosms.util.LastNumbersArray(10);
 
     assertEquals(10, l.getMaxSize());
 }
 
 LastNumbersArrayTestSuite.prototype.testGetBoundaries = function testGetBoundaries() {
-    var l = new LastNumbersArray(5);
+    var l = new funambol.subitosms.util.LastNumbersArray(5);
 
     var success = true;
     var failMessage = "";
@@ -50,7 +50,7 @@ LastNumbersArrayTestSuite.prototype.testGetBoundaries = function testGetBoundari
 }
 
 LastNumbersArrayTestSuite.prototype.testAddWithinMaxSize = function testAddWithinMaxSize() {
-    var l = new LastNumbersArray(5);
+    var l = new funambol.subitosms.util.LastNumbersArray(5);
     
     l.add(t1 = "+11111111");
     l.add(t2 = "+22222222");
@@ -63,7 +63,7 @@ LastNumbersArrayTestSuite.prototype.testAddWithinMaxSize = function testAddWithi
 }
 
 LastNumbersArrayTestSuite.prototype.testAddOverMaxSize = function testAddOverMaxSize() {
-    var l = new LastNumbersArray(3);
+    var l = new funambol.subitosms.util.LastNumbersArray(3);
 
     l.add(t1 = "+11111111");
     l.add(t2 = "+22222222");
@@ -77,7 +77,7 @@ LastNumbersArrayTestSuite.prototype.testAddOverMaxSize = function testAddOverMax
 }
 
 LastNumbersArrayTestSuite.prototype.testAddDuplicateNumber = function testAddDuplicateNumber() {
-    var l = new LastNumbersArray();
+    var l = new funambol.subitosms.util.LastNumbersArray();
 
     l.add(t1 = "+11111111");
     l.add(t2 = "+11111111");
@@ -86,7 +86,7 @@ LastNumbersArrayTestSuite.prototype.testAddDuplicateNumber = function testAddDup
 }
 
 LastNumbersArrayTestSuite.prototype.testToString = function testToString() {
-    var l = new LastNumbersArray(3);
+    var l = new funambol.subitosms.util.LastNumbersArray(3);
 
     assertEquals("", l.toString());
 
@@ -97,8 +97,8 @@ LastNumbersArrayTestSuite.prototype.testToString = function testToString() {
     assertEquals(t2+","+t1, l.toString());
 }
 
-LastNumbersArrayTestSuite.prototype.testFromString = function testFromString(s) {
-    var l = new LastNumbersArray(3);
+LastNumbersArrayTestSuite.prototype.testFromString = function testFromString() {
+    var l = new funambol.subitosms.util.LastNumbersArray(3);
 
     l.fromString("");
     assertTrue(l.isEmpty());
@@ -107,10 +107,8 @@ LastNumbersArrayTestSuite.prototype.testFromString = function testFromString(s) 
     assertEquals(1, l.getSize());
     assertEquals(t1, l.get(0));
 
-/**
     t2 = "+22222222";
     l.fromString(t1 + "," + t2);
-    assertEquals(2, l.size());
+    assertEquals(2, l.getSize());
     assertEquals(t1, l.get(0));
-**/
 }

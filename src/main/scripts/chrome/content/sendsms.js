@@ -108,7 +108,7 @@ function getNumber() {
 }
 
 function getLastUsedNumbers() {
-    lastNumbers = new LastNumbersArray();
+    lastNumbers = new funambol.subitosms.util.LastNumbersArray();
 
     var prefs = Components.classes["@mozilla.org/preferences-service;1"]
                           .getService(Components.interfaces.nsIPrefBranch);

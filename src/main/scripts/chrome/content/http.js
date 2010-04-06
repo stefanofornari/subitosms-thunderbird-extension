@@ -1,4 +1,13 @@
-function httpGET(url) {
+if (!funambol) var funambol={};
+if (!funambol.subitosms) funambol.subitosms={};
+if (!funambol.subitosms.util) {
+    funambol.subitosms.util = function() {
+        var pub = {};
+        return pub;
+    }();
+}
+
+funambol.subitosms.util.httpGET = function httpGET(url) {
   try {
       var httpRequest = new XMLHttpRequest();
   } catch (e) {

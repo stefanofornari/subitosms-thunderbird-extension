@@ -169,7 +169,7 @@ function isValidPhoneNumber(number) {
 
 function checkConfiguration() {
     try {
-        loadConfiguration();
+        funambol.subitosms.configure.loadConfiguration();
     } catch (e) {
         return false;
     }
@@ -209,7 +209,7 @@ function sendSMS() {
 
     var url = makeSubitoURL(msg, number);
 
-    var res = httpGET(url);
+    var res = funambol.subitosms.util.httpGET(url);
 
     if (res == false) {
         //

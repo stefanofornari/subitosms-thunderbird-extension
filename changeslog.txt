@@ -2,6 +2,7 @@
 ste: Put LastNumbersArray in namespace funambol.subitosms.util
 ste: Put configuration.js functions in namespace fuanmbol.subitosms.configure
 ste: Put subito.js functions in namespace funambol.subitosms
+ste: Put http.js functions in namespace funambol.util
 
 2010-03-26
 ste: releasing 1.0.5

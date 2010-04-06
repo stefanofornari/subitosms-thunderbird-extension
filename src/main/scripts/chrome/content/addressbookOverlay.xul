@@ -14,8 +14,8 @@
         This is the context popup menu available right-clicking on a card contact
     -->
     <hbox id="abContent" context="abContentPopup">
-        <popup id="abContentPopup" onpopupshowing="showMenuItems1()">
-            <menuitem id="sendsms1" oncommand="showSMSWindow(true)" />
+        <popup id="abContentPopup" onpopupshowing="funambol.subitosms.showMenuItems1()">
+            <menuitem id="sendsms1" oncommand="funambol.subitosms.showSMSWindow(true)" />
         </popup>
     </hbox>
     
@@ -23,13 +23,13 @@
         This is the context popup menu available right-clicking on a contact in the
         results list.
     -->
-    <popup id="abResultsTreeContext" onpopupshowing="showMenuItems2()">
-        <menuitem id="sendsms2" insertafter="abResultsTreeContext-newim" oncommand="showSMSWindow(true)" />
+    <popup id="abResultsTreeContext" onpopupshowing="funambol.subitosms.showMenuItems2()">
+        <menuitem id="sendsms2" insertafter="abResultsTreeContext-newim" oncommand="funambol.subitosms.showSMSWindow(true)" />
     </popup>
 
-    <menupopup id="taskPopup" onpopupshowing="showMenuItems3()">
+    <menupopup id="taskPopup" onpopupshowing="funambol.subitosms.showMenuItems3()">
         <menuseparator/>
-        <menuitem id="sendsms3" oncommand="showSMSWindow(true)"/>
+        <menuitem id="sendsms3" oncommand="funambol.subitosms.showSMSWindow(true)"/>
     </menupopup>
 
 </overlay>

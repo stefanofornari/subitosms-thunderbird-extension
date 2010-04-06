@@ -1,8 +1,16 @@
+if (!funambol) var funambol={};
+if (!funambol.subitosms) funambol.subitosms={};
+
+funambol.subitosms = function() {
+  var pub = {};
+  return pub;
+}();
+
 /**
  * Thunderbird 3.0 changed the way properties of a card are accessed; we create
  * a card object with just the information we need.
  */
-function fixCard(card) {
+funambol.subitosms.fixCard = function fixCard(card) {
     if (!isTB2()) {
         var c = new Object();
         c.homePhone = card.getProperty("HomePhone", "");
@@ -14,8 +22,8 @@ function fixCard(card) {
     return card;
 }
 
-function showMenuItems2() {
-    var card = fixCard(GetSelectedCard());
+funambol.subitosms.showMenuItems2 = function showMenuItems2() {
+    var card = funambol.subitosms.fixCard(GetSelectedCard());
 
     document.getElementById("sendsms2").label=getString("subitosms.menu.send");
 
@@ -23,15 +31,15 @@ function showMenuItems2() {
             .setAttribute("disabled", !hasPhoneNumbers(card));
 }
 
-function showMenuItems3() {
+funambol.subitosms.showMenuItems3 = function showMenuItems3() {
     document.getElementById("sendsms3").label=getString("subitosms.menu.send");
 }
 
-function showSMSWindow(withCard) {
+funambol.subitosms.showSMSWindow = function showSMSWindow(withCard) {
     var card = new Object();
 
     if (withCard) {
-        card = fixCard(GetSelectedCard());
+        card = funambol.subitosms.fixCard(GetSelectedCard());
     }
 
     dialog = openDialog(

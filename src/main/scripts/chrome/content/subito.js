@@ -1,17 +1,17 @@
 if (!funambol) var funambol={};
-if (!funambol.subitosms) funambol.subitosms={};
-
-funambol.subitosms = function() {
-  var pub = {};
-  return pub;
-}();
+if (!funambol.subitosms) {
+    funambol.subitosms = function() {
+      var pub = {};
+      return pub;
+    }();
+}
 
 /**
  * Thunderbird 3.0 changed the way properties of a card are accessed; we create
  * a card object with just the information we need.
  */
 funambol.subitosms.fixCard = function fixCard(card) {
-    if (!isTB2()) {
+    if (!funambol.subitosms.util.isTB2()) {
         var c = new Object();
         c.homePhone = card.getProperty("HomePhone", "");
         c.workPhone = card.getProperty("WorkPhone", "");
@@ -28,7 +28,7 @@ funambol.subitosms.showMenuItems2 = function showMenuItems2() {
     document.getElementById("sendsms2").label=getString("subitosms.menu.send");
 
     document.getElementById("sendsms2")
-            .setAttribute("disabled", !hasPhoneNumbers(card));
+            .setAttribute("disabled", !funambol.subitosms.util.hasPhoneNumbers(card));
 }
 
 funambol.subitosms.showMenuItems3 = function showMenuItems3() {

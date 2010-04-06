@@ -14,15 +14,15 @@ function init() {
     card = window.arguments[0];
 
     phonelist = document.getElementById("sendsms.phonelist.menu");
-    if (!isEmpty(card.cellularNumber)) {
+    if (!funambol.subitosms.util.isEmpty(card.cellularNumber)) {
         phonelist.appendItem(card.cellularNumber, card.cellularNumber, "(M)");
     }
     
-    if (!isEmpty(card.homePhone)) {
+    if (!funambol.subitosms.util.isEmpty(card.homePhone)) {
         phonelist.appendItem(card.homePhone, card.homePhone, "(H)");
     }
     
-    if (!isEmpty(card.workPhone)) {
+    if (!funambol.subitosms.util.isEmpty(card.workPhone)) {
         phonelist.appendItem(card.workPhone, card.workPhone, "(W)");
     }
 
@@ -50,7 +50,7 @@ function onMainWindowLoad() {
 function doAccept() {
     var card = window.arguments[0];
 
-    if (isDefined(card)) {
+    if (funambol.subitosms.util.isDefined(card)) {
         return sendSMS();
     }
 
@@ -61,17 +61,17 @@ function makeSubitoURL(msg, number) {
     var prefs = Components.classes["@mozilla.org/preferences-service;1"]
                           .getService(Components.interfaces.nsIPrefBranch);
 
-    var username = escapeText(
+    var username = funambol.subitosms.util.escapeText(
             prefs.getComplexValue("subitosms.username", Components.interfaces.nsISupportsString).data
         );
-    var password = escapeText(
+    var password = funambol.subitosms.util.escapeText(
             prefs.getComplexValue("subitosms.password", Components.interfaces.nsISupportsString).data
         );
-    var mitt = escapeText(
+    var mitt = funambol.subitosms.util.escapeText(
             prefs.getComplexValue("subitosms.from", Components.interfaces.nsISupportsString).data
         );
-    var dest = escapePhoneNumber(number);
-    var testo = escapeText(msg);
+    var dest = funambol.subitosms.util.escapePhoneNumber(number);
+    var testo = funambol.subitosms.util.escapeText(msg);
 
     var url = "https://www.subitosms.it/gateway.php"
             + "?username=" + username
@@ -146,21 +146,21 @@ function rememberNumber(number) {
 }
 
 function isValidMessage(msg) {
-    return !isEmpty(msg);
+    return !funambol.subitosms.util.isEmpty(msg);
 }
 
 function isValidPhoneNumber(number) {
-    if (isEmpty(number)) {
+    if (funambol.subitosms.util.isEmpty(number)) {
         return false;
     }
 
-    number = escapePhoneNumber(number);
-    number = trim(number);
+    number = funambol.subitosms.util.escapePhoneNumber(number);
+    number = funambol.subitosms.util.trim(number);
 
     //
     // If there was not any digit, number will be empty or contain only %2B
     //
-    if (isEmpty(number) || (number == "%2B")) {
+    if (funambol.subitosms.util.isEmpty(number) || (number == "%2B")) {
         return false;
     }
 

@@ -1,21 +1,25 @@
-function isDefined(v) {
+if (!funambol) var funambol={};
+if (!funambol.subitosms) funambol.subitosms={};
+if (!funambol.subitosms.util) funambol.subitosms.util = {};
+
+funambol.subitosms.util.isDefined = function isDefined(v) {
     return (typeof(v) == "undefined")?  false: true;
 }
 
-function isEmpty(v) {
-    return !isDefined(v) ||
+funambol.subitosms.util.isEmpty = function isEmpty(v) {
+    return !funambol.subitosms.util.isDefined(v) ||
         v == ""       ||
         v == null      ;
 }
 
-function hasPhoneNumbers(card) {
-    return !isEmpty(card.workPhone)
-        || !isEmpty(card.homePhone)
-        || !isEmpty(card.cellularNumber)
+funambol.subitosms.util.hasPhoneNumbers = function hasPhoneNumbers(card) {
+    return !funambol.subitosms.util.isEmpty(card.workPhone)
+        || !funambol.subitosms.util.isEmpty(card.homePhone)
+        || !funambol.subitosms.util.isEmpty(card.cellularNumber)
     ;
 }
 
-function escapePhoneNumber(number) {
+funambol.subitosms.util.escapePhoneNumber = function escapePhoneNumber(number) {
     var prefixed = number.charAt(0) == "+";
 
     var ret = number.replace(/[^0-9]/g, "");
@@ -27,7 +31,7 @@ function escapePhoneNumber(number) {
     return ret;
 }
 
-function escapeText(text) {
+funambol.subitosms.util.escapeText = function escapeText(text) {
     text = escape(text);
 
     var ret = "";
@@ -42,7 +46,7 @@ function escapeText(text) {
     return ret;
 }
 
-function isInteger(s) {
+funambol.subitosms.util.isInteger = function isInteger(s) {
     var i;
     for (i = 0; i < s.length; i++) {
         var c = s.charAt(i);
@@ -54,7 +58,7 @@ function isInteger(s) {
     return true;
 }
 
-function trim(s) {
+funambol.subitosms.util.trim = function trim(s) {
     var i;
     var ret = "";
 
@@ -68,25 +72,11 @@ function trim(s) {
     return ret;
 }
 
-function error(msg) {
+funambol.subitosms.util.error = function error(msg) {
     alert("ERROR: " + msg);
 }
 
-function stripCharsInvalid(s, bag) {
-    var i;
-    var ret = "";
-    
-    for (i = 0; i < s.length; i++) {
-        var c = s.charAt(i);
-        if (bag.indexOf(c) == -1) {
-            ret += c;
-        }
-    }
-
-    return ret;
-}
-
-function isTB2() {
+funambol.subitosms.util.isTB2 = function isTB2() {
     var info = Components.classes["@mozilla.org/xre/app-info;1"]
                .getService(Components.interfaces.nsIXULAppInfo);
    return (info.version.indexOf("2.") == 0);

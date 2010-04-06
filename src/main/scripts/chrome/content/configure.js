@@ -1,4 +1,12 @@
-function loadConfiguration() {
+if (!funambol) var funambol={};
+if (!funambol.subitosms) funambol.subitosms={};
+
+funambol.subitosms.configure = function() {
+  var pub = {};
+  return pub;
+}();
+
+funambol.subitosms.configure.loadConfiguration = function loadConfiguration() {
     var prefs = Components.classes["@mozilla.org/preferences-service;1"]
                           .getService(Components.interfaces.nsIPrefBranch);
 
@@ -14,13 +22,13 @@ function loadConfiguration() {
     return configuration;
 }
 
-function initConfigurationFields() {
+funambol.subitosms.configure.initConfigurationFields = function initConfigurationFields() {
     //
     // loadConfiguration fails if configuration parameters have never been
     // saved before
     //
     try {
-        var configuration = loadConfiguration();
+        var configuration = funambol.subitosms.configure.loadConfiguration();
 
         document.getElementById("configure.username.text").value =
             configuration.username;
@@ -35,7 +43,7 @@ function initConfigurationFields() {
     }
 }
 
-function saveConfiguration() {
+funambol.subitosms.configure.saveConfiguration = function saveConfiguration() {
     var prefs = Components.classes["@mozilla.org/preferences-service;1"]
                           .getService(Components.interfaces.nsIPrefBranch);
 
@@ -68,16 +76,16 @@ function saveConfiguration() {
     ret.saved = true;
 }
 
-function onLoadConfigureWindow() {
-    initConfigurationFields();
-    localizeLabels();
+funambol.subitosms.configure.onLoadConfigureWindow = function onLoadConfigureWindow() {
+    funambol.subitosms.configure.initConfigurationFields();
+    funambol.subitosms.configure.localizeLabels();
 }
 
-function doAccept() {
-    saveConfiguration();
+funambol.subitosms.configure.doAccept = function doAccept() {
+    funambol.subitosms.configure.saveConfiguration();
 }
 
-function localizeLabels() {
+funambol.subitosms.configure.localizeLabels = function localizeLabels() {
     document.title=getString("configure.window.title");
     document.documentElement.getButton("accept").label = getString("configure.window.accept.label");
     document.documentElement.getButton("cancel").label = getString("configure.window.cancel.label");
@@ -87,7 +95,7 @@ function localizeLabels() {
     document.getElementById("configure.subitosms.label").value = getString("configure.subitosms.label.value");
 }
 
-function showSubitoSMSSite() {
+funambol.subitosms.configure.showSubitoSMSSite = function showSubitoSMSSite() {
     var url = "http://www.subitosms.it/registrazione_step1.php";
 
     var uri = Components.classes["@mozilla.org/network/io-service;1"]

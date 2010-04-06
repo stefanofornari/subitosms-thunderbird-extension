@@ -6,8 +6,8 @@
     xmlns:html="http://www.w3.org/1999/xhtml"
     buttons="accept,cancel"
     buttonlabelaccept="configure.window.accept"
-    ondialogaccept="return doAccept();"
-    onload="onLoadConfigureWindow();"
+    ondialogaccept="return funambol.subitosms.configure.doAccept();"
+    onload="funambol.subitosms.configure.onLoadConfigureWindow();"
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 >
 
@@ -28,7 +28,7 @@
       <textbox id="configure.from.text"/>
     </hbox>
     <hbox align="right">
-      <label id="configure.subitosms.label" class="text-link" onclick="showSubitoSMSSite();"/>
+      <label id="configure.subitosms.label" class="text-link" onclick="funambol.subitosms.configure.showSubitoSMSSite();"/>
     </hbox>
   </groupbox>
  </dialog>

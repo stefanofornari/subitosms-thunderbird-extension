@@ -1,5 +1,6 @@
 2010-04-06
 ste: Put LastNumbersArray in namespace funambol.subitosms.util
+ste: Put configuration.js functions in namespace fuanmbol.subitosms.configure
 
 2010-03-26
 ste: releasing 1.0.5

@@ -86,13 +86,13 @@ funambol.subitosms.configure.doAccept = function doAccept() {
 }
 
 funambol.subitosms.configure.localizeLabels = function localizeLabels() {
-    document.title=getString("configure.window.title");
-    document.documentElement.getButton("accept").label = getString("configure.window.accept.label");
-    document.documentElement.getButton("cancel").label = getString("configure.window.cancel.label");
-    document.getElementById("configure.username.label").value = getString("configure.username.label.value");
-    document.getElementById("configure.password.label").value = getString("configure.password.label.value");
-    document.getElementById("configure.from.label").value = getString("configure.from.label.value");
-    document.getElementById("configure.subitosms.label").value = getString("configure.subitosms.label.value");
+    document.title=funambol.subitosms.i18n.getString("configure.window.title");
+    document.documentElement.getButton("accept").label = funambol.subitosms.i18n.getString("configure.window.accept.label");
+    document.documentElement.getButton("cancel").label = funambol.subitosms.i18n.getString("configure.window.cancel.label");
+    document.getElementById("configure.username.label").value = funambol.subitosms.i18n.getString("configure.username.label.value");
+    document.getElementById("configure.password.label").value = funambol.subitosms.i18n.getString("configure.password.label.value");
+    document.getElementById("configure.from.label").value = funambol.subitosms.i18n.getString("configure.from.label.value");
+    document.getElementById("configure.subitosms.label").value = funambol.subitosms.i18n.getString("configure.subitosms.label.value");
 }
 
 funambol.subitosms.configure.showSubitoSMSSite = function showSubitoSMSSite() {

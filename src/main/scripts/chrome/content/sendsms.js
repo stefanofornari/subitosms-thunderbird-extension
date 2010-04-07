@@ -86,14 +86,14 @@ function makeSubitoURL(msg, number) {
 
 function analizeResponse(res) {
     if (res.indexOf("non autorizzato") >= 0) {
-        alert(getString("sendsms.alert.notauthorized"));
+        alert(funambol.subitosms.i18n.getString("sendsms.alert.notauthorized"));
     } else if (res.indexOf("credito insufficiente") >= 0) {
-        alert(getString("sendsms.alert.nocredit"));
+        alert(funambol.subitosms.i18n.getString("sendsms.alert.nocredit"));
     } else if (res.indexOf("id:") == 0) {
-        alert(getString("sendsms.alert.sent"));
+        alert(funambol.subitosms.i18n.getString("sendsms.alert.sent"));
         return true;
     } else {
-        alert(getString("sendsms.subito.error") + ":" + res);
+        alert(funambol.subitosms.i18n.getString("sendsms.subito.error") + ":" + res);
     }
 
     return false;
@@ -184,7 +184,7 @@ function sendSMS() {
     // subitosms first.
     //
     if (!checkConfiguration()) {
-        alert(getString("sendsms.alert.noconfiguration"));
+        alert(funambol.subitosms.i18n.getString("sendsms.alert.noconfiguration"));
         if (!showConfigureWindow()) {
             //
             // If the user pressed cancel, do not send the message and keep the
@@ -198,12 +198,12 @@ function sendSMS() {
     var number = getNumber();
 
     if (!isValidMessage(msg)) {
-        alert(getString("sendsms.alert.nomessage"));
+        alert(funambol.subitosms.i18n.getString("sendsms.alert.nomessage"));
         return false;
     }
 
     if (!isValidPhoneNumber(number)) {
-        alert(getString("sendsms.alert.invalidnumber"));
+        alert(funambol.subitosms.i18n.getString("sendsms.alert.invalidnumber"));
         return false;
     }
 
@@ -236,9 +236,9 @@ function showConfigureWindow() {
 }
 
 function localizeLabels() {
-    document.title=getString("sendsms.window.title");
-    document.documentElement.getButton("accept").label = getString("sendsms.window.accept.label");
-    document.documentElement.getButton("cancel").label = getString("sendsms.window.cancel.label");
-    document.getElementById("sendsms.phonelist").value = getString("sendsms.phonelist.value");
-    document.getElementById("sendsms.subitosmsbutton.configure").tooltipText = getString("sendsms.subitosmsbutton.configure.tooltip");
+    document.title=funambol.subitosms.i18n.getString("sendsms.window.title");
+    document.documentElement.getButton("accept").label = funambol.subitosms.i18n.getString("sendsms.window.accept.label");
+    document.documentElement.getButton("cancel").label = funambol.subitosms.i18n.getString("sendsms.window.cancel.label");
+    document.getElementById("sendsms.phonelist").value = funambol.subitosms.i18n.getString("sendsms.phonelist.value");
+    document.getElementById("sendsms.subitosmsbutton.configure").tooltipText = funambol.subitosms.i18n.getString("sendsms.subitosmsbutton.configure.tooltip");
 }

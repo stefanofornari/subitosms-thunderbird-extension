@@ -25,14 +25,14 @@ funambol.subitosms.fixCard = function fixCard(card) {
 funambol.subitosms.showMenuItems2 = function showMenuItems2() {
     var card = funambol.subitosms.fixCard(GetSelectedCard());
 
-    document.getElementById("sendsms2").label=getString("subitosms.menu.send");
+    document.getElementById("sendsms2").label=funambol.subitosms.i18n.getString("subitosms.menu.send");
 
     document.getElementById("sendsms2")
             .setAttribute("disabled", !funambol.subitosms.util.hasPhoneNumbers(card));
 }
 
 funambol.subitosms.showMenuItems3 = function showMenuItems3() {
-    document.getElementById("sendsms3").label=getString("subitosms.menu.send");
+    document.getElementById("sendsms3").label=funambol.subitosms.i18n.getString("subitosms.menu.send");
 }
 
 funambol.subitosms.showSMSWindow = function showSMSWindow(withCard) {

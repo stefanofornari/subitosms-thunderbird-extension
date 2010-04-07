@@ -1,15 +1,16 @@
-var bundleService = Components.classes["@mozilla.org/intl/stringbundle;1"]
-                    .getService(Components.interfaces.nsIStringBundleService);
-var bundle = bundleService.createBundle("chrome://subitosms/locale/subitosms.properties");
+if (!funambol) var funambol={};
+if (!funambol.subitosms) funambol.subitosms={};
+if (!funambol.subitosms.i18n) funambol.subitosms.i18n = function() {
+    var pub = {};
 
-function getWidgetId(s) {
-  return s.split(".")[0];
-}
+    var bundle = Components.classes["@mozilla.org/intl/stringbundle;1"]
+                 .getService(Components.interfaces.nsIStringBundleService)
+                 .createBundle("chrome://subitosms/locale/subitosms.properties");
 
-function getWidgetElement(s) {
-  return s.split(".")[1];
-}
+    pub.getString = function(key) {
+        return bundle.GetStringFromName(key);
+    }
 
-function getString(key) {
-  return bundle.GetStringFromName(key);
-}
+    return pub;
+}();
+ 

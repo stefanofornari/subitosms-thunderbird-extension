@@ -1,5 +1,7 @@
 2010-04-07
 ste: Put i18n.js functions in namespace funambol.subitosms.i18n
+ste: Put sendsms.js functions in namespace funambol.subitosms.sendsms
+
 2010-04-06
 ste: Put LastNumbersArray in namespace funambol.subitosms.util
 ste: Put configuration.js functions in namespace fuanmbol.subitosms.configure

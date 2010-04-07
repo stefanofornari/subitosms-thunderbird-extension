@@ -7,8 +7,8 @@
     buttons="accept,cancel"
     buttonlabelaccept="sendsms.window.accept.label"
     buttonlabelcancel="sendsms.window.cancel.label"
-    ondialogaccept="return doAccept();"
-    onload="onMainWindowLoad();"
+    ondialogaccept="return funambol.subitosms.sendsms.doAccept();"
+    onload="funambol.subitosms.sendsms.onMainWindowLoad();"
     xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 >
 
@@ -43,7 +43,7 @@
         <button id="sendsms.subitosmsbutton.configure"
                 image="img/subitosms.png"
                 tooltiptext="sendsms.subitosmsbutton.configure.tooltip"
-                oncommand="showConfigureWindow();"/>
+                oncommand="funambol.subitosms.sendsms.showConfigureWindow();"/>
       </hbox>
     </vbox>
   </groupbox>

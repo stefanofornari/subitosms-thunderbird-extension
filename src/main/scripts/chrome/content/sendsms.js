@@ -1,8 +1,12 @@
-function init() {
+if (!funambol) var funambol={};
+if (!funambol.subitosms) funambol.subitosms={};
+if (!funambol.subitosms.sendsms) funambol.subitosms.sendsms = {};
+
+funambol.subitosms.sendsms.init = function init() {
     //
     // Lable localization
     //
-    localizeLabels();
+    funambol.subitosms.sendsms.localizeLabels();
     
     //
     // I want to display the numbers in this order:
@@ -29,7 +33,7 @@ function init() {
     //
     // After the card phone numbers, I want to display the latest used number
     //
-    lastNumbers = getLastUsedNumbers();
+    lastNumbers = funambol.subitosms.sendsms.getLastUsedNumbers();
     if (lastNumbers.getSize() > 0) {
         var separator = document.createElement("menuseparator");
         document.getElementById("sendsms.phonelist.menu.popup").appendChild(separator);
@@ -42,22 +46,22 @@ function init() {
     phonelist.selectedIndex=0;
 }
 
-function onMainWindowLoad() {
-    init();
+funambol.subitosms.sendsms.onMainWindowLoad = function onMainWindowLoad() {
+    funambol.subitosms.sendsms.init();
 }
 
 
-function doAccept() {
+funambol.subitosms.sendsms.doAccept = function doAccept() {
     var card = window.arguments[0];
 
     if (funambol.subitosms.util.isDefined(card)) {
-        return sendSMS();
+        return funambol.subitosms.sendsms.sendSMS();
     }
 
     return true;
 }
 
-function makeSubitoURL(msg, number) {
+funambol.subitosms.sendsms.makeSubitoURL = function makeSubitoURL(msg, number) {
     var prefs = Components.classes["@mozilla.org/preferences-service;1"]
                           .getService(Components.interfaces.nsIPrefBranch);
 
@@ -84,7 +88,7 @@ function makeSubitoURL(msg, number) {
     return url;
 }
 
-function analizeResponse(res) {
+funambol.subitosms.sendsms.analizeResponse = function analizeResponse(res) {
     if (res.indexOf("non autorizzato") >= 0) {
         alert(funambol.subitosms.i18n.getString("sendsms.alert.notauthorized"));
     } else if (res.indexOf("credito insufficiente") >= 0) {
@@ -99,15 +103,15 @@ function analizeResponse(res) {
     return false;
 }
 
-function getMessage() {
+funambol.subitosms.sendsms.getMessage = function getMessage() {
     return document.getElementById("sendsms.message.textbox").value;
 }
 
-function getNumber() {
+funambol.subitosms.sendsms.getNumber = function getNumber() {
     return document.getElementById("sendsms.phonelist.menu").value;
 }
 
-function getLastUsedNumbers() {
+funambol.subitosms.sendsms.getLastUsedNumbers = function getLastUsedNumbers() {
     lastNumbers = new funambol.subitosms.util.LastNumbersArray();
 
     var prefs = Components.classes["@mozilla.org/preferences-service;1"]
@@ -130,14 +134,13 @@ function getLastUsedNumbers() {
     return lastNumbers;
 }
 
-function rememberNumber(number) {
+funambol.subitosms.sendsms.rememberNumber = function rememberNumber(number) {
     var prefs = Components.classes["@mozilla.org/preferences-service;1"]
                           .getService(Components.interfaces.nsIPrefBranch);
 
-    var lastNumbers = getLastUsedNumbers();
+    var lastNumbers = funambol.subitosms.sendsms.getLastUsedNumbers();
 
     lastNumbers.add(number);
-
 
     prefs.setCharPref(
         "subitosms.last-numbers",
@@ -145,11 +148,11 @@ function rememberNumber(number) {
     );
 }
 
-function isValidMessage(msg) {
+funambol.subitosms.sendsms.isValidMessage = function isValidMessage(msg) {
     return !funambol.subitosms.util.isEmpty(msg);
 }
 
-function isValidPhoneNumber(number) {
+funambol.subitosms.sendsms.isValidPhoneNumber = function isValidPhoneNumber(number) {
     if (funambol.subitosms.util.isEmpty(number)) {
         return false;
     }
@@ -167,7 +170,7 @@ function isValidPhoneNumber(number) {
     return true;
 }
 
-function checkConfiguration() {
+funambol.subitosms.sendsms.checkConfiguration = function checkConfiguration() {
     try {
         funambol.subitosms.configure.loadConfiguration();
     } catch (e) {
@@ -178,14 +181,14 @@ function checkConfiguration() {
 }
 
 
-function sendSMS() {
+funambol.subitosms.sendsms.sendSMS = function sendSMS() {
     //
     // If there is not a valid configuration, ask the user to configure
     // subitosms first.
     //
-    if (!checkConfiguration()) {
+    if (!funambol.subitosms.sendsms.checkConfiguration()) {
         alert(funambol.subitosms.i18n.getString("sendsms.alert.noconfiguration"));
-        if (!showConfigureWindow()) {
+        if (!funambol.subitosms.sendsms.showConfigureWindow()) {
             //
             // If the user pressed cancel, do not send the message and keep the
             // send sms window open
@@ -194,20 +197,20 @@ function sendSMS() {
         }
     }
 
-    var msg = getMessage();
-    var number = getNumber();
+    var msg = funambol.subitosms.sendsms.getMessage();
+    var number = funambol.subitosms.sendsms.getNumber();
 
-    if (!isValidMessage(msg)) {
+    if (!funambol.subitosms.sendsms.isValidMessage(msg)) {
         alert(funambol.subitosms.i18n.getString("sendsms.alert.nomessage"));
         return false;
     }
 
-    if (!isValidPhoneNumber(number)) {
+    if (!funambol.subitosms.sendsms.isValidPhoneNumber(number)) {
         alert(funambol.subitosms.i18n.getString("sendsms.alert.invalidnumber"));
         return false;
     }
 
-    var url = makeSubitoURL(msg, number);
+    var url = funambol.subitosms.sendsms.makeSubitoURL(msg, number);
 
     var res = funambol.subitosms.util.httpGET(url);
 
@@ -218,12 +221,12 @@ function sendSMS() {
         return false;
     }
 
-    rememberNumber(number);
+    funambol.subitosms.sendsms.rememberNumber(number);
 
-    return analizeResponse(res);
+    return funambol.subitosms.sendsms.analizeResponse(res);
 }
 
-function showConfigureWindow() {
+funambol.subitosms.sendsms.showConfigureWindow = function showConfigureWindow() {
     var ret = {saved: false};
     openDialog(
         "chrome://subitosms/content/configure.xul",
@@ -235,7 +238,7 @@ function showConfigureWindow() {
     return ret.saved;
 }
 
-function localizeLabels() {
+funambol.subitosms.sendsms.localizeLabels = function localizeLabels() {
     document.title=funambol.subitosms.i18n.getString("sendsms.window.title");
     document.documentElement.getButton("accept").label = funambol.subitosms.i18n.getString("sendsms.window.accept.label");
     document.documentElement.getButton("cancel").label = funambol.subitosms.i18n.getString("sendsms.window.cancel.label");

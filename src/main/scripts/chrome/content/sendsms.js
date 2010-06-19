@@ -112,7 +112,7 @@ funambol.subitosms.sendsms.getNumber = function getNumber() {
 }
 
 funambol.subitosms.sendsms.getLastUsedNumbers = function getLastUsedNumbers() {
-    lastNumbers = new funambol.subitosms.util.LastNumbersArray();
+    lastNumbers = new funambol.subitosms.util.FILOArray();
 
     var prefs = Components.classes["@mozilla.org/preferences-service;1"]
                           .getService(Components.interfaces.nsIPrefBranch);

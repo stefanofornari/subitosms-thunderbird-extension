@@ -1,3 +1,6 @@
+2010-06-19
+ste: renamed LastNumbersArray to LIFOArray
+
 2010-04-07
 ste: releasing 1.0.6 - no global names anymore
 ste: Put i18n.js functions in namespace funambol.subitosms.i18n

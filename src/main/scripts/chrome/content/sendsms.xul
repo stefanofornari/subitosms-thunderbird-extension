@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
-<?xml-stylesheet href="chrome://subitosms/skin/subito.css" type="text/css"?>
 
-<dialog id="sendsms.window" xmlns:html="http://www.w3.org/1999/xhtml" buttons="accept,cancel" buttonlabelaccept="sendsms.window.accept.label" buttonlabelcancel="sendsms.window.cancel.label" ondialogaccept="return funambol.subitosms.sendsms.doAccept();" onload="funambol.subitosms.sendsms.onMainWindowLoad();" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<dialog
+    id="sendsms.window"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    buttons="accept,cancel"
+    buttonlabelaccept="sendsms.window.accept.label"
+    buttonlabelcancel="sendsms.window.cancel.label"
+    ondialogaccept="return funambol.subitosms.sendsms.doAccept();"
+    onload="funambol.subitosms.sendsms.onMainWindowLoad();"
+    xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+>
+
   <script src="chrome://subitosms/content/i18n.js"/>
   <script src="chrome://subitosms/content/utils.js"/>
   <script src="chrome://subitosms/content/lib/FILOArray.js"/>
@@ -14,36 +23,29 @@
     <hbox align="center">
       <label id="sendsms.phonelist" value="sendsms.phonelist.value"/>
       <menulist id="sendsms.phonelist.menu" editable="true" sizetopopup="true">
-        <menupopup id="sendsms.phonelist.menu.popup"/>
-      </menulist>
+           <menupopup id="sendsms.phonelist.menu.popup"/>
+        </menulist>
     </hbox>
     <hbox align="center">
-      <textbox id="sendsms.message.textbox" flex="1" multiline="true" newlines="replacewithspaces" maxlength="1000" spellcheck="true" tabindex="1"/>
+      <textbox id="sendsms.message.textbox"
+               flex="1"
+               multiline="true"
+               newlines="replacewithspaces"
+               maxlength="1000"
+               spellcheck="true"
+               tabindex="1"
+    />
     </hbox>
-    <vbox height="50" flex="0" id="last-messages" orient="vertical">
-      <grid>
-        <rows>
-          <row flex="1"/>
-        </rows>
-        <columns>
-          <column>
-            <hbox align="start" class="collapsed-toggle-hdr-box">
-              <image id="toggle-last-messages" class="expand-old-messages-button"/>
-            </hbox>
-          </column>
-          <column id="collapsed-last-messages" flex="1">
-            <listbox id="last-messages-list" flex="1"/>
-          </column>
-        </columns>
-      </grid>
-    </vbox>
     <vbox height="50">
       <spacer flex="1"/>
       <hbox>
         <spacer flex="1"/>
-        <button id="sendsms.subitosmsbutton.configure" image="img/subitosms.png" tooltiptext="sendsms.subitosmsbutton.configure.tooltip" oncommand="funambol.subitosms.sendsms.showConfigureWindow();"/>
+        <button id="sendsms.subitosmsbutton.configure"
+                image="img/subitosms.png"
+                tooltiptext="sendsms.subitosmsbutton.configure.tooltip"
+                oncommand="funambol.subitosms.sendsms.showConfigureWindow();"/>
       </hbox>
     </vbox>
-    
   </groupbox>
+
 </dialog>

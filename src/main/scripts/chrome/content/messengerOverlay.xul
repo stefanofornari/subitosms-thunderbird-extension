@@ -18,14 +18,14 @@
  - 
  -->
 
-<?xml-stylesheet href="chrome://subitosms/skin/subito.css" type="text/css"?>
+<?xml-stylesheet href="chrome://funambol/content/funambol-style.css" type="text/css"?>
 
 <overlay id="SUBITOSMS_MESSENGER"
          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
     <script src="chrome://subitosms/content/i18n.js"/>
-    <script type="text/javascript" src="chrome://subitosms/content/utils.js"  />
-    <script type="text/javascript" src="chrome://subitosms/content/subito.js" />    <!-- Thunderbird menu overlay -->
+    <script type="text/javascript" src="chrome://subitosms/content/utils.js" />
+    <script type="text/javascript" src="chrome://subitosms/content/subito.js" /> <!-- Thunderbird menu overlay -->
 
     <menupopup id="taskPopup" onpopupshowing="funambol.subitosms.showMenuItems3()">
         <menuseparator/>

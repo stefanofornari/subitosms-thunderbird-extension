@@ -19,9 +19,9 @@ xmlns:em="http://www.mozilla.org/2004/em-rdf#">
 		<em:optionsURL>chrome://subitosms/content/preferences.xul</em:optionsURL>
 		<em:targetApplication>
 			<Description>
-				 <em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id>
-        	     <em:minVersion>2.0</em:minVersion>
-        		 <em:maxVersion>3.0.*</em:maxVersion>
+                        <em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id>
+                        <em:minVersion>2.0</em:minVersion>
+        		<em:maxVersion>3.*</em:maxVersion>
 			</Description>
 		</em:targetApplication>
 	</Description>

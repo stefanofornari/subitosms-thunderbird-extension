@@ -1,3 +1,14 @@
 .CardViewText,.CardViewLink,.CardViewHeading,.CardViewGroup,#CardTitle  {
 	-moz-user-select:text !important;
 }
+
+.expand-old-messages-button {
+   list-style-image: url(chrome://subitosms/skin/images/buttons2.png);
+  -moz-image-region: rect(16px, 16px, 32px, 0px);
+
+}
+
+.collapse-old-messages-button  {
+   list-style-image: url(chrome://subitosms/skin/images/buttons2.png);
+  -moz-image-region: rect(32px, 16px, 48px, 0px);
+}

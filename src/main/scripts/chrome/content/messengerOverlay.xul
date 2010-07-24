@@ -18,7 +18,7 @@
  - 
  -->
 
-<?xml-stylesheet href="chrome://funambol/content/funambol-style.css" type="text/css"?> 
+<?xml-stylesheet href="chrome://subitosms/skin/subito.css" type="text/css"?>
 
 <overlay id="SUBITOSMS_MESSENGER"
          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">

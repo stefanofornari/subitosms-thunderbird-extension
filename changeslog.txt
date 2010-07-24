@@ -1,3 +1,7 @@
+2010-07-24
+ste: set compatibility to 3.*
+ste: releasing 1.0.7 - compatibility to TB 3.*
+
 2010-06-19
 ste: renamed LastNumbersArray to LIFOArray
 
